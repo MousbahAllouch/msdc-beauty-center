@@ -4,7 +4,9 @@
  */
 
 // Get API URL from environment variables
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// In production, use relative path (same domain). In development, use localhost.
+const API_URL = import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD ? '/api' : 'http://localhost:5000/api');
 
 /**
  * Contact form data interface
